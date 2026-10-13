@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><title>Контрольная работа — Проектный менеджмент</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="brand-mark">КР</span><div><strong>Контрольная работа</strong><small>Проектный менеджмент</small></div></div><div id="top-status" class="top-status">Не начата</div></header>
+  <main class="shell">
+    <section id="start-screen" class="panel start-panel">
+      <p class="eyebrow">ИТОГОВАЯ ПРОВЕРКА ЗНАНИЙ</p><h1>Контрольная работа</h1>
+      <p class="lead">Проектный менеджмент</p>
+      <div class="summary-grid"><div><strong>50</strong><span>вопросов</span></div><div><strong>5</strong><span>тематических блоков</span></div><div><strong>1</strong><span>попытка</span></div></div>
+      <div class="notice"><strong>Важно: контроль окна включён</strong><p>При переключении на другую вкладку или окно работа блокируется и потребуется пароль преподавателя. Допускается не более двух таких выходов; третий завершит работу автоматически. Нажатия Shift и Alt сами по себе нарушением не считаются.</p></div>
+      <p class="muted small">Не обновляйте страницу и не закрывайте вкладку до отправки результата. Ответы проверяются автоматически; преподаватель получает результат в закрытой таблице.</p>
+      <form id="start-form" class="form-grid">
+        <label>Фамилия, имя, отчество<input id="student-name" name="studentName" autocomplete="name" required maxlength="160" placeholder="Введите ФИО"></label>
+        <label>Группа<input id="student-group" name="group" required maxlength="80" placeholder="Например, ИС-21"></label>
+        <button class="primary full" type="submit">Начать контрольную <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+    <section id="exam-screen" class="hidden">
+      <div class="exam-head"><div><p class="eyebrow" id="block-kicker">БЛОК 1 ИЗ 5</p><h1 id="block-title">Тема</h1><p id="block-desc" class="muted"></p></div><div class="counter"><strong id="answered-count">0</strong><span>из 50 отвечено</span></div></div>
+      <div class="progress-track"><div id="progress-fill"></div></div>
+      <nav id="block-nav" class="block-nav" aria-label="Тематические блоки"></nav>
+      <article class="question-card"><div class="question-meta"><span id="question-number">Вопрос 1</span><span id="question-type">Один ответ</span></div><h2 id="question-text"></h2><div id="question-body"></div><div class="question-actions"><button id="prev-btn" class="secondary" type="button">Назад</button><span id="local-position" class="muted small">1 / 10 в блоке</span><button id="next-btn" class="primary" type="button">Далее <span aria-hidden="true">→</span></button></div></article>
+      <div class="finish-row"><p class="muted small">Перед отправкой проверьте ответы. После завершения изменить их нельзя.</p><button id="finish-btn" class="danger" type="button">Завершить работу</button></div>
+    </section>
+    <section id="result-screen" class="panel result-panel hidden"><p class="eyebrow">РАБОТА ЗАВЕРШЕНА</p><h1 id="result-title">Результат</h1><div class="result-metric"><strong id="result-correct">—</strong><span>правильных ответов из 50</span></div><p class="grade-line">Оценка: <strong id="result-grade">—</strong></p><p id="result-save-status" class="muted">Отправка результата преподавателю…</p><p class="small muted">Правильные ответы и разбор заданий не показываются.</p></section>
+  </main>
+  <div id="lock-screen" class="lock-screen hidden" role="dialog" aria-modal="true" aria-labelledby="lock-title"><div class="lock-card"><p class="eyebrow">РАБОТА ЗАБЛОКИРОВАНА</p><h2 id="lock-title">Вы покинули окно контрольной</h2><p id="lock-message">Введите пароль преподавателя, чтобы продолжить.</p><p id="lock-count" class="lock-count"></p><form id="unlock-form"><label>Пароль преподавателя<input id="unlock-password" type="password" autocomplete="off" required></label><p id="unlock-error" class="error hidden">Неверный пароль. Попробуйте ещё раз.</p><button class="primary full" type="submit">Разблокировать</button></form></div></div>
+  <div id="confirm-screen" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="confirm-title"><div class="modal-card"><h2 id="confirm-title">Завершить контрольную?</h2><p id="confirm-copy">После отправки изменить ответы нельзя.</p><div class="modal-actions"><button id="cancel-finish" class="secondary" type="button">Продолжить</button><button id="confirm-finish" class="danger" type="button">Завершить и отправить</button></div></div></div>
+  <iframe name="submit-frame" id="submit-frame" class="hidden-frame" title="Отправка результата"></iframe>
+  <form id="submit-form" method="post" target="submit-frame" class="hidden-frame"><input type="hidden" name="payload" id="submit-payload"></form>
+  <script src="js/config.js"></script><script src="js/questions.js"></script><script src="js/app.js"></script>
+</body></html>
